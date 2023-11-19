@@ -21,9 +21,15 @@ License
 
 This project is licensed under the MIT License.
 
+Links
+-----
+
+* `Download <https://pypi.org/project/inliners/#files>`_
+* `Source <https://pypi.org/project/inliners/>`_
+
 Credits
 -------
-- Author: Johannes Programming
+- Author: Johannes
 - Email: johannes-programming@posteo.org
 
 Thank you for using inliners!
