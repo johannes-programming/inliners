@@ -1,13 +1,11 @@
 import string as _str
 import sys as _sys
 
-import wonderparse as _wp
+import click as _click
+import getoptify as _getoptify
 
 
-def parse(
-    string: "The string to be parsed.",
-    /,
-) -> list:
+def parse(string: str, /) -> list:
     """Parse a string to create a list of strings."""
     ans = list()
     quoting = False
@@ -38,16 +36,20 @@ def parse(
     return ans
 
 
-def main(args=None):
-    parser = _wp.parser.by_object(parse, prog="inliners")
-    ns = parser.parse_args(args)
-    funcInput = _wp.process_namespace.by_object(parse, namespace=ns)
-    try:
-        ans = _wp.execution.by_object(parse, funcInput=funcInput)
-    except Exception as err:
-        raise SystemExit(f"Parsing with inliners failed: {err}")
-    for line in ans:
-        print(line)
+@_getoptify.command(
+    shortopts="hV",
+    longopts=["help", "version"],
+    allow_argv=True,
+    gnu=True,
+)
+@_click.command(add_help_option=False)
+@_click.help_option("-h", "--help")
+@_click.version_option(None, "-V", "--version")
+@_click.argument("string")
+def main(*args):
+    """parse string into list"""
+    for line in parse(*args):
+        _click.echo(line)
 
 
 if __name__ == "__main__":
