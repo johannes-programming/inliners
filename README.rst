@@ -26,7 +26,7 @@ Links
 
 * `Documentation <https://pypi.org/project/inliners>`_
 * `Download <https://pypi.org/project/inliners/#files>`_
-* `Source <https://pypi.org/project/inliners/>`_
+* `Source <https://github.com/johannes-programming/inliners>`_
 
 Credits
 -------
